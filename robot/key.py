@@ -3,9 +3,10 @@ import requests
 
 apiUrl = 'http://www.tuling123.com/openapi/api'
 data = {
-    'key'    : '8edce3ce905a4c1dbb965e6b35c3834d', # 如果这个Tuling Key不能用，那就换一个
-    'info'   : 'hello', # 这是我们发出去的消息
-    'userid' : 'wechat-robot', # 这里你想改什么都可以
+    'key'    : '3a02b09443094073b97fb8ac2978c9ba',
+    #如果这个TulingKey不能用，那就换一个8edce3ce905a4c1dbb965e6b35c3834d
+    'info'   : u'你好呀~', # 这是我们发出去的消息
+    'userid' : 'luluko', # 这里你想改什么都可以
 }
 # 我们通过如下命令发送一个post请求
 r = requests.post(apiUrl, data=data).json()

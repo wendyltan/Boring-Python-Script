@@ -2,7 +2,7 @@
 import requests
 import itchat
 
-KEY = '8edce3ce905a4c1dbb965e6b35c3834d'
+KEY = '3a02b09443094073b97fb8ac2978c9ba'
 
 def get_response(msg):
     # 这里我们就像在“3. 实现最简单的与图灵机器人的交互”中做的一样
@@ -11,7 +11,7 @@ def get_response(msg):
     data = {
         'key'    : KEY,
         'info'   : msg,
-        'userid' : 'wechat-robot',
+        'userid' : 'luluko',
     }
     try:
         r = requests.post(apiUrl, data=data).json()
