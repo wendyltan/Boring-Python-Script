@@ -1,3 +1,11 @@
-# localpractice
-this is the *local work* on my computer of py2 learning
+# Boring py script
 
+Maybe the most boring scripts I had written.
+
++ encode
++ especially useless
++ just like c
++ py spider
++ wechat_helper
++ codeArt
++ cs python
