@@ -17,21 +17,21 @@ def PPTtoImage(path_to_ppt, path_to_folder):
     powerpoint.Presentations[1].Close()
     powerpoint.Quit()
 
-def PPTtoPDF(path_to_source_file, transfer_name, formatType = 32):
+def PPTtoPDF(input_file_path, output_file_path, formatType = 32):
     powerpoint = CreateObject("Powerpoint.Application")
     powerpoint.Visible = True
-    if transfer_name[-3:] != 'pdf':
-        transfer_name = transfer_name + ".pdf"
-    deck = powerpoint.Presentations.Open(path_to_source_file)
-    deck.SaveAs(transfer_name, formatType) # formatType = 32 for ppt to pdf
+    if output_file_path[-3:] != 'pdf':
+        output_file_path = output_file_path + ".pdf"
+    deck = powerpoint.Presentations.Open(input_file_path)
+    deck.SaveAs(output_file_path, formatType) # formatType = 32 for ppt to pdf
     deck.Close()
     powerpoint.Quit()
 
-def docToPdf(path_to_doc, transfer_name, format_type = 17):
+def docToPdf(input_file_path, output_file_path, format_type = 17):
 
     word = CreateObject('Word.Application')
-    doc = word.Documents.Open(path_to_doc)
-    doc.SaveAs(transfer_name, format_type)
+    doc = word.Documents.Open(input_file_path)
+    doc.SaveAs(output_file_path, format_type)
     doc.Close()
     word.Quit()
 
@@ -50,18 +50,19 @@ if __name__ == '__main__':
     final_directory = os.path.join(current_directory,filename)
 
     if not os.path.exists(final_directory):
-        os.makedirs(final_directory)
-        os.chdir(filename)
-    print(os.getcwd())
+        os.mkdir(final_directory)
+    os.chdir(filename)
+
 
     original = input("Please enter original file name and put your file under this directory:\n")
-    original_path = os.path.abspath(original)
-    print(original_path)
+    original_path = os.path.abspath(os.path.join(os.path.dirname(original),os.path.pardir))
+    file_source = os.path.join(original_path,original)
+    file_output = os.path.join(final_directory,filename)
 
     if(choice=="1"):
-        PPTtoImage(original_path, final_directory)
+        PPTtoImage(file_source,final_directory)
     elif(choice=="2"):
-        PPTtoPDF(original_path,final_directory)
+        PPTtoPDF(file_source,file_output)
     elif(choice=="3"):
-        docToPdf(original_path,final_directory)
+        docToPdf(file_source,file_output)
     print("Transfer success!")
