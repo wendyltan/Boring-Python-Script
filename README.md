@@ -2,7 +2,8 @@
 
 Maybe the most boring scripts I had written.
 
-+ encode
++ base64
++ transformation
 + especially useless
 + just like c
 + py spider
