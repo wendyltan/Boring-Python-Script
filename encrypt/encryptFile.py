@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 '''
     File encryptFile.py
     Author: Wendy
@@ -9,10 +9,11 @@
 
 from cryptography.fernet import Fernet
 import os
+import codecs
 def encrypt_file(filename):
     # to encrypt
     data = ""
-    file = open(filename, 'r')
+    file = open(filename, 'r',encoding="utf8")
     filedata = file.read()
     for line in filedata:
         data += line
@@ -27,7 +28,7 @@ def encrypt_file(filename):
 def decrypt_file(filename):
     # to decrypt
     ddata = ""
-    file = open(filename,'r')
+    file = open(filename,'r',encoding="utf8")
     filedata = file.read()
     for line in filedata:
         ddata += line
@@ -68,6 +69,8 @@ if __name__ == '__main__':
     if choice=='1':
         try:
             encrypt_file(filename)
+        # except UnicodeDecodeError:
+        #     print("Maybe this is a file contain Chinese character?\nThere is only English support now!")
         except FileNotFoundError:
             print("Sorry but it doesn't seem to be the right file name or it doesn't exist..")
     elif choice=='2':
