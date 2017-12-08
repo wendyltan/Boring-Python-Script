@@ -1,7 +1,8 @@
 ## CodeArt
 
 
-using pyfiglet to generate ascii code pic
+- codeart.py:using pyfiglet to generate ascii code pic
+- heart.py: auto generate a heart shape 
 
 ## Require
 
