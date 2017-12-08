@@ -1,4 +1,4 @@
-##Screen shot
+## Screen shot
 
 The scripts in this file deal with screen shot.
 
