@@ -39,9 +39,8 @@ def decrypt_file(filename):
     file.close()
     print("decrypt success!")
 
-if __name__ == '__main__':
-
-    cipher = Fernet(Fernet.generate_key())
+ def main_loop():
+ 	cipher = Fernet(Fernet.generate_key())
     #if no key
     if  not os.path.isfile("key.txt"):
         # create cipher_key
@@ -82,6 +81,10 @@ if __name__ == '__main__':
             print("Sorry but it doesn't seem to be the right file name or it doesn't exist..")
 
 
+
+if __name__ == '__main__':
+
+    
 
 
 
