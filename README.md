@@ -10,4 +10,5 @@
 + pyGui: using tkinter to wrap scripts
 + wechat_helper : a cmd side web-wechat and a tuling robot helper
 + codeArt : generate awesome code pic
++ network : some scripts related to the network condition
 + cs python : c/s structure script that deal with database(for class exp only)
