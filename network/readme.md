@@ -10,3 +10,11 @@ the color of the font can change randomly
 # Problem remain
 
 Infos are too little,and the outputs too ugly.Save for latter change.
+
+# Noted
+
+If it don't show normal on your cmd command line, try to change your cmd codepage to utf-8(**Enter** `chcp 65001`)
+
+
+
+
