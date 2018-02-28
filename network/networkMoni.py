@@ -20,16 +20,17 @@ FOREGROUND_BLUE = 0x09 # blue.
 FOREGROUND_GREEN = 0x0a # green.
 FOREGROUND_RED = 0x0c # red.
 
+#setting default request server as baidu.com
+
 global_url = "www.baidu.com"
 std_out_handle = ctypes.windll.kernel32.GetStdHandle(STD_OUTPUT_HANDLE)
 
 
+#use command to change test server
 @click.command()
 @click.option('--url',default=global_url,help='Set url of test request')
 def setUrl(url):
-    global global_url
-    global_url = url
-    start_process()
+    start_process(url)
 
 
 def set_cmd_text_color(color,handle=std_out_handle):
@@ -60,22 +61,22 @@ def convertBytes(bytes):
     return '%.2f B' % (bytes)
 
 #request to test net status
-def run_request():
+def run_request(url):
     """do main request loop here to check the net status"""
     while(True):
         try:
             #the site used for request test
-            result = requests.get("http://"+global_url,timeout=1)
+            result = requests.get("http://"+url,timeout=1)
             code = str(result.status_code)
             reason = str(result.reason)
-            server = str(result.headers["Server"])
+            server = url
             mess = "Status "+code + ' ' +reason + '\n'+"Request Server: "+server
         except requests.exceptions.ConnectionError:
-            mess = "套接字操作尝试一个无法连接的主机"+'\n'
+           mess = "Can not connect to this host"
         except requests.exceptions.HTTPError:
-            mess = "Unsuccess status code"+'\n'
+            mess = "Unsuccess status code"
         except requests.exceptions.Timeout:
-            mess = "Request time out"+'\n'
+            mess = "Request time out"
         finally:
             before_byte_sent = psutil.net_io_counters(pernic=True)['WLAN'].bytes_sent
             before_byte_recv = psutil.net_io_counters(pernic=True)['WLAN'].bytes_recv
@@ -114,15 +115,16 @@ def run_request():
             resetColor()
 
 
-def start_process():
+def start_process(url):
     """start a new process to request"""
-    p = multiprocessing.Process(target=run_request, name="run request process")
+    p = multiprocessing.Process(target=run_request(url), name="run request process")
     p.start()
     print(p.name + " " + str(p.pid) + " " + str(p.is_alive()))
     print("process start" + "\n")
 
 if __name__ == '__main__':
     setUrl()
+
 
 
 
