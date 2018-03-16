@@ -8,6 +8,5 @@ The scripts in this directory deal with mp3 or sound file
 
 ## Noted
 
-- You might need to climb over the GFW if the `gTTS` package doesn't work.
-- You can see progress bar from `progress` package while running the scripts while you don't see
-anything in Pycharm console.
+- You might need to climb over the GFW if the `gTTS` package doesn't work.(for Chinese friends)
+- You can see progress bar from `progress` package while running the scripts while you might don't see anything in Pycharm console.
