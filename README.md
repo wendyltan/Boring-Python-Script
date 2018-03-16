@@ -13,3 +13,4 @@
 + network : some scripts related to the network condition
 + cs python : c/s structure script that deal with database(for class exp only)
 + music : deal with text and mp3 sound transformation
++ file copy: deal with file copy and dirs list out
