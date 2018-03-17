@@ -58,7 +58,7 @@ def grab_file(path):
     '''
     file_type = input("Enter suffix of file type(ex: 'txt')\n")
 
-    re_match = ".*" + file_type+'$'
+    re_match = ".*\." + file_type+'$'
     pattern = re.compile(re_match)
 
     files_list = []
